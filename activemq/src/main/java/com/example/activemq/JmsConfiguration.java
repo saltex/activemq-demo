@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
 
+import java.util.Locale;
+
 @Configuration
 public class JmsConfiguration {
     String BROKER_URL = "tcp://localhost:61616";
@@ -34,6 +36,10 @@ public class JmsConfiguration {
         factory.setConnectionFactory(connectionFactory());
         factory.setConcurrency("1-1");
         return factory;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Locale.getDefault().getISO3Country());
     }
 
 }
